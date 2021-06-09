@@ -67,5 +67,18 @@ namespace Panosen.CodeDom
         }
 
         #endregion
+
+        #region implicit
+
+        /// <summary>
+        /// new StringWriter(StringBuilder) as CodeWriter
+        /// </summary>
+        /// <param name="builder"></param>
+        public static implicit operator CodeWriter(StringBuilder builder)
+        {
+            return new StringWriter(builder);
+        }
+
+        #endregion
     }
 }
