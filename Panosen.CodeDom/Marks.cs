@@ -130,5 +130,15 @@ namespace Panosen.CodeDom
         /// !
         /// </summary>
         public const string Exclamation = "!";
+
+        /// <summary>
+        /// &amp;
+        /// </summary>
+        public const string AND = "&";
+
+        /// <summary>
+        /// $
+        /// </summary>
+        public const string DOLLAR = "$";
     }
 }
