@@ -9,7 +9,7 @@ namespace Panosen.CodeDom
     /// <summary>
     /// key 或 "key"
     /// </summary>
-    public class DataKey
+    public class DataKey : IComparable
     {
         /// <summary>
         /// Key
@@ -99,5 +99,31 @@ namespace Panosen.CodeDom
 
             return this.Value.GetHashCode();
         }
+
+        #region IComparable Members
+
+        /// <summary>
+        /// IComparable.CompareTo
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public int CompareTo(object obj)
+        {
+            var that = obj as DataKey;
+
+            if (that == null)
+            {
+                return 1;
+            }
+
+            if (this.Value == null && that.Value == null)
+            {
+                return 0;
+            }
+
+            return this.Value.CompareTo(that.Value);
+        }
+
+        #endregion
     }
 }
