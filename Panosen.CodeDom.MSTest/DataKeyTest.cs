@@ -91,13 +91,33 @@ namespace Panosen.CodeDom.MSTest
         [TestMethod]
         public void TestOperatorGreaterThan()
         {
-            DataKey left = 2;
+            {
+                DataKey left = null;
+                DataKey right = "1";
+                Assert.IsFalse(left > right);
+            }
+            {
+                DataKey left = new DataKey();
+                DataKey right = "1";
+                Assert.IsFalse(left > right);
+            }
 
-            DataKey right = "1";
+            {
+                DataKey left = 2;
+                DataKey right = null;
+                Assert.IsTrue(left > right);
+            }
+            {
+                DataKey left = 2;
+                DataKey right = new DataKey();
+                Assert.IsTrue(left > right);
+            }
 
-            var actual = left > right;
-
-            Assert.IsTrue(actual);
+            {
+                DataKey left = 2;
+                DataKey right = "1";
+                Assert.IsTrue(left > right);
+            }
         }
 
         [TestMethod]
@@ -120,6 +140,30 @@ namespace Panosen.CodeDom.MSTest
             DataKey right = "1";
 
             var actual = left != right;
+
+            Assert.IsTrue(actual);
+        }
+
+        [TestMethod]
+        public void TestOperatorGreaterEqualsThan()
+        {
+            DataKey left = 2;
+
+            DataKey right = "1";
+
+            var actual = left >= right;
+
+            Assert.IsTrue(actual);
+        }
+
+        [TestMethod]
+        public void TestOperatorLessEqualsThan()
+        {
+            DataKey left = 1;
+
+            DataKey right = "2";
+
+            var actual = left <= right;
 
             Assert.IsTrue(actual);
         }
