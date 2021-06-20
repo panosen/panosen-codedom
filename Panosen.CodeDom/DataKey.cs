@@ -124,6 +124,97 @@ namespace Panosen.CodeDom
             return this.Value.CompareTo(that.Value);
         }
 
+        /// <summary>
+        /// ==
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static bool operator ==(DataKey left, DataKey right)
+        {
+            if (ReferenceEquals(left, null))
+            {
+                return ReferenceEquals(right, null);
+            }
+
+            return left.Equals(right);
+        }
+
+        /// <summary>
+        /// &gt;
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static bool operator >(DataKey left, DataKey right)
+        {
+            if (ReferenceEquals(left, null) || string.IsNullOrEmpty(left.Value))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(right, null) || string.IsNullOrEmpty(right.Value))
+            {
+                return true;
+            }
+
+            return left.Value.CompareTo(right.Value) > 0;
+        }
+
+        /// <summary>
+        /// &lt;
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static bool operator <(DataKey left, DataKey right)
+        {
+            if (ReferenceEquals(right, null) || string.IsNullOrEmpty(right.Value))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(left, null) || string.IsNullOrEmpty(left.Value))
+            {
+                return true;
+            }
+
+            return right.Value.CompareTo(left.Value) > 0;
+        }
+
+        /// <summary>
+        /// !=
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static bool operator !=(DataKey left, DataKey right)
+        {
+            return !(left == right);
+        }
+
+        /// <summary>
+        /// &gt;=
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static bool operator >=(DataKey left, DataKey right)
+        {
+            return left == right || left > right;
+        }
+
+        /// <summary>
+        /// &lt;=
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static bool operator <=(DataKey left, DataKey right)
+        {
+            return left == right || left < right;
+        }
+
         #endregion
     }
 }

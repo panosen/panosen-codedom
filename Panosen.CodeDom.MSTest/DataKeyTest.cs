@@ -75,5 +75,53 @@ namespace Panosen.CodeDom.MSTest
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void TestOperatorEqualsTo()
+        {
+            DataKey left = 1;
+
+            DataKey right = "1";
+
+            var actual = left == right;
+
+            Assert.IsTrue(actual);
+        }
+
+        [TestMethod]
+        public void TestOperatorGreaterThan()
+        {
+            DataKey left = 2;
+
+            DataKey right = "1";
+
+            var actual = left > right;
+
+            Assert.IsTrue(actual);
+        }
+
+        [TestMethod]
+        public void TestOperatorLessThan()
+        {
+            DataKey left = 1;
+
+            DataKey right = "2";
+
+            var actual = left < right;
+
+            Assert.IsTrue(actual);
+        }
+
+        [TestMethod]
+        public void TestOperatorNotEqualsTo()
+        {
+            DataKey left = 2;
+
+            DataKey right = "1";
+
+            var actual = left != right;
+
+            Assert.IsTrue(actual);
+        }
     }
 }
