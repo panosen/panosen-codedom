@@ -123,49 +123,72 @@ namespace Panosen.CodeDom.MSTest
         [TestMethod]
         public void TestOperatorLessThan()
         {
-            DataKey left = 1;
+            {
+                DataKey left = null;
+                DataKey right = "1";
+                Assert.IsTrue(left < right);
+            }
+            {
+                DataKey left = new DataKey();
+                DataKey right = "1";
+                Assert.IsTrue(left < right);
+            }
 
-            DataKey right = "2";
+            {
+                DataKey left = 2;
+                DataKey right = null;
+                Assert.IsFalse(left < right);
+            }
+            {
+                DataKey left = 2;
+                DataKey right = new DataKey();
+                Assert.IsFalse(left < right);
+            }
 
-            var actual = left < right;
-
-            Assert.IsTrue(actual);
+            {
+                DataKey left = 2;
+                DataKey right = "1";
+                Assert.IsFalse(left < right);
+            }
         }
 
         [TestMethod]
         public void TestOperatorNotEqualsTo()
         {
             DataKey left = 2;
-
             DataKey right = "1";
 
-            var actual = left != right;
-
-            Assert.IsTrue(actual);
+            Assert.IsTrue(left != right);
         }
 
         [TestMethod]
         public void TestOperatorGreaterEqualsThan()
         {
-            DataKey left = 2;
-
-            DataKey right = "1";
-
-            var actual = left >= right;
-
-            Assert.IsTrue(actual);
+            {
+                DataKey left = 2;
+                DataKey right = "1";
+                Assert.IsTrue(left >= right);
+            }
+            {
+                DataKey left = 1;
+                DataKey right = "1";
+                Assert.IsTrue(left >= right);
+            }
         }
 
         [TestMethod]
         public void TestOperatorLessEqualsThan()
         {
-            DataKey left = 1;
-
-            DataKey right = "2";
-
-            var actual = left <= right;
-
-            Assert.IsTrue(actual);
+            {
+                DataKey left = "1";
+                DataKey right = 2;
+                Assert.IsTrue(left <= right);
+            }
+            {
+                DataKey left = 1;
+                DataKey right = "1";
+                Assert.IsTrue(left <= right);
+            }
         }
     }
 }
