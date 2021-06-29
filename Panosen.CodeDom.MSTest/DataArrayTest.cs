@@ -49,6 +49,8 @@ namespace Panosen.CodeDom.MSTest
                 List<DataValue> items = new List<DataValue>();
                 dataArray.AddRange(items);
 
+                dataArray.AddRange(null as List<DataValue>);
+
                 items.Add(1);
                 dataArray.AddRange(items);
 
