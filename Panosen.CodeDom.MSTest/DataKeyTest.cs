@@ -59,21 +59,46 @@ namespace Panosen.CodeDom.MSTest
         [TestMethod]
         public void GetHashCodeTest()
         {
-            DataKey one = 1;
-            Assert.AreEqual("1".GetHashCode(), one.GetHashCode());
+            {
+                DataKey one = 1;
+                Assert.AreEqual("1".GetHashCode(), one.GetHashCode());
+            }
+
+            {
+                DataKey one = new DataKey();
+                Assert.AreEqual(0, one.GetHashCode());
+            }
         }
 
 
         [TestMethod]
         public void CompareToTest()
         {
-            var expected = 1.CompareTo(2);
+            {
+                var expected = 1.CompareTo(2);
 
-            DataKey one = 1;
-            DataKey two = 2;
-            var actual = one.CompareTo(two);
+                DataKey one = 1;
+                DataKey two = 2;
+                var actual = one.CompareTo(two);
 
-            Assert.AreEqual(expected, actual);
+                Assert.AreEqual(expected, actual);
+            }
+
+            {
+                DataKey one = 1;
+                DataKey two = null;
+                var actual = one.CompareTo(two);
+
+                Assert.AreEqual(1, actual);
+            }
+
+            {
+                DataKey one = new DataKey();
+                DataKey two = new DataKey();
+                var actual = one.CompareTo(two);
+
+                Assert.AreEqual(0, actual);
+            }
         }
 
         [TestMethod]

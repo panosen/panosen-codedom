@@ -19,12 +19,22 @@ namespace Panosen.CodeDom.MSTest
             }
 
             {
+                DataValue dataValue = false;
+                Assert.AreEqual("false", dataValue.Value);
+            }
+
+            {
                 DataValue dataValue = 1;
                 Assert.AreEqual("1", dataValue.Value);
             }
 
             {
                 DataValue dataValue = (uint)1;
+                Assert.AreEqual("1", dataValue.Value);
+            }
+
+            {
+                DataValue dataValue = (ulong)1;
                 Assert.AreEqual("1", dataValue.Value);
             }
 
@@ -52,6 +62,12 @@ namespace Panosen.CodeDom.MSTest
                 DataValue dataValue = new DataValue();
                 dataValue.SetValue(true);
                 Assert.AreEqual("true", dataValue.Value);
+            }
+
+            {
+                DataValue dataValue = new DataValue();
+                dataValue.SetValue(false);
+                Assert.AreEqual("false", dataValue.Value);
             }
 
             {

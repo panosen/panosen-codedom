@@ -21,6 +21,12 @@ namespace Panosen.CodeDom.MSTest
 
             {
                 SortedDataObject sortedDataObject = new SortedDataObject();
+                sortedDataObject.AddDataValue(1, (DataValue)1);
+                Assert.AreEqual(1, sortedDataObject.DataItemMap.Count);
+            }
+
+            {
+                SortedDataObject sortedDataObject = new SortedDataObject();
                 sortedDataObject.AddDataValue(1);
                 Assert.AreEqual(1, sortedDataObject.DataItemMap.Count);
             }
