@@ -32,6 +32,15 @@ namespace Panosen.CodeDom
             return new CodeWriter(textWriter);
         }
 
+        /// <summary>
+        /// new StringWriter(StringBuilder) as CodeWriter
+        /// </summary>
+        /// <param name="builder"></param>
+        public static implicit operator CodeWriter(StringBuilder builder)
+        {
+            return new StringWriter(builder);
+        }
+
         #region Call TextWriter Members
 
         /// <summary>
@@ -64,19 +73,6 @@ namespace Panosen.CodeDom
         {
             textWriter.WriteLine();
             return this;
-        }
-
-        #endregion
-
-        #region implicit
-
-        /// <summary>
-        /// new StringWriter(StringBuilder) as CodeWriter
-        /// </summary>
-        /// <param name="builder"></param>
-        public static implicit operator CodeWriter(StringBuilder builder)
-        {
-            return new StringWriter(builder);
         }
 
         #endregion
