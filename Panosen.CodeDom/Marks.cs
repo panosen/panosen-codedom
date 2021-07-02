@@ -140,5 +140,10 @@ namespace Panosen.CodeDom
         /// $
         /// </summary>
         public const string DOLLAR = "$";
+
+        /// <summary>
+        /// *
+        /// </summary>
+        public const string STAR = "*";
     }
 }
