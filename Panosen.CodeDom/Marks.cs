@@ -145,5 +145,10 @@ namespace Panosen.CodeDom
         /// *
         /// </summary>
         public const string STAR = "*";
+
+        /// <summary>
+        /// `
+        /// </summary>
+        public const string BACKQUOTE = "`";
     }
 }
