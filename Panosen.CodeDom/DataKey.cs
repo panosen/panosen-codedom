@@ -158,7 +158,7 @@ namespace Panosen.CodeDom
                 return true;
             }
 
-            return left.Value.CompareTo(right.Value) > 0;
+            return string.Compare(left.Value, right.Value, StringComparison.Ordinal) > 0;
         }
 
         /// <summary>
@@ -179,7 +179,7 @@ namespace Panosen.CodeDom
                 return true;
             }
 
-            return right.Value.CompareTo(left.Value) > 0;
+            return string.Compare(left.Value, right.Value, StringComparison.Ordinal) < 0;
         }
 
         /// <summary>
