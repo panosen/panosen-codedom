@@ -143,6 +143,12 @@ namespace Panosen.CodeDom.MSTest
                 DataKey right = "1";
                 Assert.IsTrue(left > right);
             }
+
+            {
+                DataKey left = DataKey.DoubleQuotationString("a_b");
+                DataKey right = DataKey.DoubleQuotationString("a");
+                Assert.IsTrue(left > right);
+            }
         }
 
         [TestMethod]
@@ -174,6 +180,12 @@ namespace Panosen.CodeDom.MSTest
                 DataKey left = 2;
                 DataKey right = "1";
                 Assert.IsFalse(left < right);
+            }
+
+            {
+                DataKey left = DataKey.DoubleQuotationString("a");
+                DataKey right = DataKey.DoubleQuotationString("a_b");
+                Assert.IsTrue(left < right);
             }
         }
 
