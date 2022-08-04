@@ -150,5 +150,35 @@ namespace Panosen.CodeDom
         /// `
         /// </summary>
         public const string BACKQUOTE = "`";
+
+        /// <summary>
+        /// ?
+        /// </summary>
+        public const string QUESTION = "?";
+
+        /// <summary>
+        /// #
+        /// </summary>
+        public const string SHARP = "#";
+
+        /// <summary>
+        /// %
+        /// </summary>
+        public const string PERCENT = "%";
+
+        /// <summary>
+        /// ^
+        /// </summary>
+        public const string CARET = "^";
+
+        /// <summary>
+        /// _
+        /// </summary>
+        public const string UNDERLINE = "_";
+
+        /// <summary>
+        /// |
+        /// </summary>
+        public const string VERTIAL_LINE = "|";
     }
 }
